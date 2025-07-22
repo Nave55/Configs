@@ -1,0 +1,138 @@
+# GreasySlug : dark high contrast <9619abgoni@gmail.com>
+
+# Interface
+"ui.background" = { bg = "black" }
+"ui.window" = { fg = "aqua" }
+"special" = "orange"                           # file picker fuzzy match
+"ui.background.separator" = { fg = "white" }
+"ui.text" = "light-gray"
+"ui.text.focus" = { modifiers = ["reversed"] } # file picker selected
+
+"ui.virtual.jump-label" = { fg = "deep_red", modifiers = [
+    "bold",
+], underline = { color = "deep_red", style = "line" } }
+"ui.virtual" = "gray"
+"ui.virtual.whitespace" = "gray"
+"ui.virtual.ruler" = { fg = "white", bg = "gray" }
+"ui.virtual.indent-guide" = "white"
+"ui.virtual.inlay-hint" = { fg = "hint_gray" }
+"ui.virtual.inlay-hint.parameter" = { fg = "hint_gray" }
+"ui.virtual.inlay-hint.type" = { fg = "hint_gray" }
+"ui.virtual.wrap" = "gray"
+
+"ui.statusline" = { fg = "white", bg = "deep_blue" }
+"ui.statusline.inactive" = { fg = "gray", bg = "deep_blue" }
+"ui.statusline.normal" = { fg = "black", bg = "aqua" }
+"ui.statusline.insert" = { fg = "black", bg = "orange" }
+"ui.statusline.select" = { fg = "black", bg = "purple" }
+"ui.statusline.separator" = { fg = "aqua", bg = "white" }
+
+"ui.cursor" = { fg = "black", bg = "white" }
+"ui.cursor.insert" = { fg = "black", bg = "white" }
+"ui.cursor.select" = { fg = "black", bg = "white" }
+"ui.cursor.match" = { modifiers = ["reversed"] }
+"ui.cursor.primary" = { fg = "black", bg = "white", modifiers = ["slow_blink"] }
+"ui.cursor.secondary" = "white"
+"ui.cursorline.primary" = { bg = "deep_blue", underline = { color = "orange", style = "double_line" } }
+"ui.cursorline.secondary" = { bg = "dark_blue", underline = { color = "white", style = "line" } }
+"ui.selection" = { fg = "dark_blue", bg = "white" }
+"ui.selection.primary" = { fg = "deep_blue", bg = "white" }
+
+"ui.menu" = { fg = "white", bg = "deep_blue" }
+"ui.menu.selected" = { fg = "orange", underline = { style = "line" } }
+"ui.menu.scroll" = { fg = "aqua", bg = "black" }
+"ui.help" = { fg = "white", bg = "deep_blue" }
+
+"ui.popup" = { bg = "deep_blue" }
+"ui.popup.info" = { fg = "white", bg = "deep_blue" }
+
+"ui.gutter" = { bg = "black" }
+"ui.gutter.selected" = { bg = "black" }
+"ui.linenr" = { fg = "light_gray", bg = "black" }
+"ui.linenr.selected" = { fg = "orange", bg = "black", modifiers = ["bold"] }
+
+# Diagnostic
+"diagnostic" = { fg = "white" }
+"diagnostic.info" = { underline = { color = "white", style = "dotted" } }
+"diagnostic.hint" = { underline = { color = "yellow", style = "dashed" } }
+"diagnostic.warning" = { underline = { color = "orange", style = "curl" } }
+"diagnostic.error" = { underline = { color = "red", style = "curl" } }
+"diagnostic.unnecessary" = { modifiers = ["bold"] }
+"diagnostic.deprecated" = { modifiers = ["crossed_out"] }
+"info" = "white"
+"hint" = "yellow"
+"warning" = "orange"
+"error" = "red"
+"debug" = "red"
+
+"diff.plus" = "green"
+"diff.delta" = "blue"
+"diff.minus" = "pink"
+
+# Syntax highlight
+"type" = "deep_purple"
+"type.builtin" = "deep_purple"
+"type.enum" = "blue_green"
+"comment" = "gray"
+"operator" = "light_gray"
+"variable" = "var_red"
+"variable.builtin" = "var_red"
+"variable.other.member" = "blue_green"
+"constant" = "light-magenta"
+"constant.character" = "emerald_green"
+"constant.numeric" = "burnt_orange"
+"attributes" = "blue"
+"namespace" = "deep_purple"
+"string" = "emerald_green"
+"string.special.url" = "emerald_green"
+"constant.character.escape" = "var_red"
+"constructor" = "deep_purple"
+"keyword" = "mustard"
+"keyword.control" = "mustard"
+"keyword.storage.modifier" = "deep_purple"
+"keyword.function" = "salmon"
+"keyword.storage.type" = "salmon"
+"function" = { fg = "dark_blue" }
+"label" = "deep_purple"
+"tag" = "purple"
+"attribute" = "blue"
+"punctuation" = "mustard"
+"punctuation.delimiter" = "light_gray"
+
+# Markup 
+"markup.heading" = { fg = "yellow", modifiers = [
+    "bold",
+], underline = { color = "yellow", style = "double_line" } }
+"markup.list" = "pink"
+"markup.bold" = { fg = "emerald_green", modifiers = ["bold"] }
+"markup.italic" = { fg = "blue", modifiers = ["italic"] }
+"markup.strikethrough" = { modifiers = ["crossed_out"] }
+"markup.link.url" = { fg = "blue", underline = { color = "blue", style = "line" } }
+"markup.link.text" = "pink"
+"markup.quote" = "yellow"
+"markup.raw" = "brown"
+
+[palette]
+black = "#000000"
+gray = "#585858"
+white = "#ffffff"
+blue = "#3ec5fa"
+deep_blue = "#142743"
+dark_blue = "#367ff5"
+aqua = "#55a8c2"
+purple = "#c586c0"
+deep_purple = "#8651f0"
+deep_red = "#fd0004"
+var_red = "#bf1d32"
+salmon = "#c2596d"
+pink = "#ee6ff7"
+orange = "#e07a14"
+burnt_orange = "#c97c08"
+brown = "#ce9178"
+yellow = "#fff34f"
+mustard = "#c4a80a"
+green = "#427a2d"
+emerald_green = "#0b7d10"
+blue_green = "#0f918d"
+light_gray = "#a9abba"
+hint_gray = "#737375"
