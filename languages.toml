@@ -1,0 +1,215 @@
+[[language]]
+name = "v"
+scope = "source.v"
+file-types = ["v", "vv", "vsh"]
+shebangs = ["v run"]
+roots = ["v.mod"]
+language-servers = [ "vlang-language-server" ]
+auto-format = true
+comment-token = "//"
+block-comment-tokens = { start = "/*", end = "*/" }
+indent = { tab-width = 4, unit = "\t" }
+
+[[grammar]]
+name = "v"
+source = {git = "https://github.com/v-analyzer/v-analyzer", subpath = "tree_sitter_v", rev = "e14fdf6e661b10edccc744102e4ccf0b187aa8ad"}
+
+[language.auto-pairs]
+'(' = ')'
+'[' = ']'
+'"' = '"'
+"'" = "'"
+'{' = '}'
+'|' = '|'
+
+[[language]]
+name = "odin"
+auto-format = true
+scope = "source.odin"
+file-types = ["odin"]
+roots = ["ols.json", "main.odin"]
+language-servers = [ "ols" ]
+comment-token = "//"
+block-comment-tokens = { start = "/*", end = "*/" }
+indent = { tab-width = 4, unit = "\t" }
+formatter = { command = "odinfmt", args = [ "-stdin", "true" ] }
+
+[[grammar]]
+name = "odin"
+source = { git = "https://github.com/tree-sitter-grammars/tree-sitter-odin", rev = "b5f668ef8918aab13812ce73acd89fe191fb8c5e" }
+
+[[language]]
+name = "rust"
+scope = "source.rust"
+injection-regex = "rs|rust"
+file-types = ["rs"]
+roots = ["Cargo.toml", "Cargo.lock"]
+shebangs = ["rust-script", "cargo"]
+auto-format = true
+comment-tokens = ["//", "///", "//!"]
+block-comment-tokens = [
+  { start = "/*", end = "*/" },
+  { start = "/**", end = "*/" },
+  { start = "/*!", end = "*/" },
+]
+language-servers = [ "rust-analyzer" ]
+indent = { tab-width = 4, unit = "    " }
+persistent-diagnostic-sources = ["rustc", "clippy"]
+
+[language.auto-pairs]
+'(' = ')'
+'[' = ']'
+'"' = '"'
+"'" = "'"
+'{' = '}'
+'|' = '|'
+
+[[grammar]]
+name = "rust"
+source = { git = "https://github.com/tree-sitter/tree-sitter-rust", rev = "9c84af007b0f144954adb26b3f336495cbb320a7" }
+
+[[language]]
+name = "nim"
+scope = "source.nim"
+injection-regex = "nim"
+file-types = ["nim", "nims", "nimble"]
+shebangs = []
+comment-token = "#"
+block-comment-tokens = { start = "#[", end = "]#" }
+indent = { tab-width = 2, unit = "  " }
+language-servers = [ "nimlangserver" ]
+
+[language.auto-pairs]
+'(' = ')'
+'[' = ']'
+'"' = '"'
+"'" = "'"
+'{' = '}'
+
+[[grammar]]
+name = "nim"
+source = { git = "https://github.com/alaviss/tree-sitter-nim", rev = "c5f0ce3b65222f5dbb1a12f9fe894524881ad590" }
+
+[[language]]
+name = "cpp"
+scope = "source.cpp"
+injection-regex = "cpp"
+file-types = ["cc", "hh", "c++", "cpp", "hpp", "h", "ipp", "tpp", "cxx", "hxx", "ixx", "txx", "ino", "C", "H", "cu", "cuh", "cppm", "h++", "ii", "inl", { glob = ".hpp.in" }, { glob = ".h.in" }]
+comment-token = "//"
+block-comment-tokens = { start = "/*", end = "*/" }
+language-servers = [ "clangd" ]
+indent = { tab-width = 2, unit = "  " }
+
+[language.debugger]
+name = "lldb-dap"
+transport = "stdio"
+command = "lldb-dap"
+
+[[language.debugger.templates]]
+name = "binary"
+request = "launch"
+completion = [ { name = "binary", completion = "filename" } ]
+args = { console = "internalConsole", program = "{0}" }
+
+[[language.debugger.templates]]
+name = "attach"
+request = "attach"
+completion = [ "pid" ]
+args = { console = "internalConsole", pid = "{0}" }
+
+[[language.debugger.templates]]
+name = "gdbserver attach"
+request = "attach"
+completion = [ { name = "lldb connect url", default = "connect://localhost:3333" }, { name = "file", completion = "filename" }, "pid" ]
+args = { console = "internalConsole", attachCommands = [ "platform select remote-gdb-server", "platform connect {0}", "file {1}", "attach {2}" ] }
+
+[[grammar]]
+name = "cpp"
+source = { git = "https://github.com/tree-sitter/tree-sitter-cpp", rev = "670404d7c689be1c868a46f919ba2a3912f2b7ef" }
+
+[language.auto-pairs]
+'(' = ')'
+'[' = ']'
+'"' = '"'
+"'" = "'"
+'{' = '}'
+'|' = '|'
+
+[[language]]
+name = "powershell"
+scope = "source.powershell"
+injection-regex = "(pwsh|powershell)"
+file-types = [ "ps1", "psm1", "psd1", "pscc", "psrc" ]
+shebangs = [ "pwsh", "powershell" ]
+comment-token = '#'
+block-comment-tokens = { start = "<#", end = "#>" }
+indent = { tab-width = 4, unit = "    " }
+
+[[grammar]]
+name = "powershell"
+source = { git = "https://github.com/airbus-cert/tree-sitter-powershell", rev = "c9316be0faca5d5b9fd3b57350de650755f42dc0" }
+
+[language.auto-pairs]
+'(' = ')'
+'[' = ']'
+'"' = '"'
+"'" = "'"
+'{' = '}'
+
+[[language]]
+name = "ruby"
+scope = "source.ruby"
+injection-regex = "ruby"
+file-types = [
+  "rb",
+  "rake",
+  "irb",
+  "gemspec",
+  "rabl",
+  "jbuilder",
+  "jb",
+  "podspec",
+  "rjs",
+  "rbi",
+  "rbs",
+  { glob = "rakefile" },
+  { glob = "gemfile" },
+  { glob = "Rakefile" },
+  { glob = "Gemfile" },
+  { glob = "Podfile" },
+  { glob = "Vagrantfile" },
+  { glob = "Brewfile" },
+  { glob = "Guardfile" },
+  { glob = "Capfile" },
+  { glob = "Cheffile" },
+  { glob = "Hobofile" },
+  { glob = "Appraisals" },
+  { glob = "Rantfile" },
+  { glob = "Berksfile" },
+  { glob = "Berksfile.lock" },
+  { glob = "Thorfile" },
+  { glob = "Puppetfile" },
+  { glob = "Fastfile" },
+  { glob = "Appfile" },
+  { glob = "Deliverfile" },
+  { glob = "Matchfile" },
+  { glob = "Scanfile" },
+  { glob = "Snapfile" },
+  { glob = "Gymfile" },
+]
+shebangs = ["ruby"]
+comment-token = "#"
+language-servers = [ "solargraph" ]
+indent = { tab-width = 2, unit = "  " }
+
+[[grammar]]
+name = "ruby"
+source = { git = "https://github.com/tree-sitter/tree-sitter-ruby", rev = "206c7077164372c596ffa8eaadb9435c28941364" }
+
+[language.auto-pairs]
+'(' = ')'
+'[' = ']'
+'"' = '"'
+"'" = "'"
+'{' = '}'
+'|' = '|'
