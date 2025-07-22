@@ -26,10 +26,12 @@ C-j = ["extend_to_line_bounds", "delete_selection", "paste_after"]
 C-k = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
 C-A-c = [":bc!"]
 C-A-s = ["save_selection"]
+C-A-a = ["goto_line_start"]
+C-A-d = ["goto_line_end"]
 
 [keys.insert]
 C-s = [":w!", "normal_mode"]
-C-A-u = ["kill_to_line_end"]
+C-A-k = ["kill_to_line_start"]
 
 [editor.lsp]
 enable = true
