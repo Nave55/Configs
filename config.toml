@@ -1,0 +1,37 @@
+theme = "nave"
+
+[editor]
+line-number = "absolute"
+auto-format = true
+auto-completion = true
+mouse = false
+bufferline = "multiple"
+end-of-line-diagnostics = "hint"
+
+[editor.inline-diagnostics]
+cursor-line = "error"
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.file-picker]
+hidden = true
+
+[keys.normal]
+esc = ["collapse_selection", "keep_primary_selection"] 
+C-s = [":w!"]
+C-j = ["extend_to_line_bounds", "delete_selection", "paste_after"]
+C-k = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
+C-A-c = [":bc!"]
+C-A-s = ["save_selection"]
+
+[keys.insert]
+C-s = [":w!", "normal_mode"]
+C-A-u = ["kill_to_line_end"]
+
+[editor.lsp]
+enable = true
+display-inlay-hints = false
+snippets = true
