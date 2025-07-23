@@ -231,13 +231,5 @@ auto-format = true
 name = "python"
 source = { git = "https://github.com/tree-sitter/tree-sitter-python", rev = "4bfdd9033a2225cc95032ce77066b7aeca9e2efc" }
 
-[language.formatter]
-command = "black"
-args = ["format", "-"]
-
-[language-server.ruff]
-command = "ruff"
-args = ["server"]
-
 [language-server.pylsp.config.pylsp.plugins]
 plugins.black.enabled = true
