@@ -1,0 +1,60 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "cppbuild",
+			"label": "Debug c++",
+			"command": "D:/mingw64/bin/g++.exe",
+			"args": [
+				"-fdiagnostics-color=always",
+				// "${fileDirname}/*.cpp",
+				"${file}",
+				// "-static",
+				"-std=gnu++2c",
+				"-lstdc++exp",
+				"-ID:/boost",
+				// "-IC:/Program Files/CPP Libraries",
+				// "-O2",
+				"-O0",
+				"-Wall",
+				"-Wextra", 
+				"-g3",
+				// "-DDEBUG",
+				"-o",
+				"${fileDirname}/output/${fileBasenameNoExtension}.exe"
+
+			],
+			"options": {
+				"cwd": "${fileDirname}"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"detail": "compiler: D:/mingw64/bin/g++.exe"
+		},
+		{
+			"type": "shell",
+			"label": "Build + Run",
+			"command": "cls; g++ ${file} -std=gnu++2c -lstdc++exp -ID:/boost -O0 -Wall -Wextra -g3 -DDEBUG -o ${fileDirname}/output/${fileBasenameNoExtension}.exe ; . ./output/${fileBasenameNoExtension}.exe",
+			"options": {
+				"cwd": "${fileDirname}"
+			},
+			"group": {
+                "kind": "build",
+                "isDefault": true,
+            },
+            "presentation": {
+                // Reveal the output only if unrecognized errors occur.
+                "reveal": "silent",
+                "clear": true,
+
+            },
+            // Use the standard MS compiler pattern to detect errors, warnings and infos
+            "problemMatcher": "$msCompile"
+		},
+	]
+}
