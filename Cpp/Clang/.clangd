@@ -1,0 +1,2 @@
+CompileFlags:
+  Add: [-Wall, -Wextra, -g3, -std=c++2c]
