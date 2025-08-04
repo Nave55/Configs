@@ -17,4 +17,5 @@ if ($Release) {
     $flags += "run"
 }
 
+cls
 v @flags $Name
