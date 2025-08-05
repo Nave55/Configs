@@ -2,5 +2,6 @@ BasedOnStyle: Google
 IndentWidth: 4
 AccessModifierOffset: -4
 BreakConstructorInitializers: BeforeColon
-AllowShortFunctionsOnASingleLine: Inline
+AllowShortFunctionsOnASingleLine: Empty
 PackConstructorInitializers: Never
+IncludeBlocks: Merge
