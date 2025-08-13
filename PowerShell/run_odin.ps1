@@ -2,6 +2,7 @@ param(
 [string]$Name,
 [string]$File,
 [switch]$Release,
+[switch]$Test,
 [switch]$Keep,
 [switch]$Vet,
 [switch]$Timings,
@@ -9,6 +10,7 @@ param(
 )
 
 $exe_loc = "-out=output\$Name.exe"
+$run_type = "run"
 $flags = @()
 
 if ($File -ne "") {
@@ -22,6 +24,10 @@ if ($Release) {
 } else {
     $flags += "-o:none"
     $flags += "-debug"
+}
+
+if ($Test) {
+    $run_type = "test"
 }
 
 if ($Keep) {
@@ -41,4 +47,4 @@ if ($MoreTimings) {
 }
  
 cls
-odin run $Name $flags $exe_loc $debug_mode
+odin $run_type $Name $flags $exe_loc $debug_mode
