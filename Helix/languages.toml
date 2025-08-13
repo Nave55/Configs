@@ -98,6 +98,7 @@ file-types = ["cc", "hh", "c++", "cpp", "hpp", "h", "ipp", "tpp", "cxx", "hxx", 
 comment-token = "//"
 block-comment-tokens = { start = "/*", end = "*/" }
 language-servers = [ "clangd" ]
+auto-format = true
 indent = { tab-width = 2, unit = "  " }
 
 [language.debugger]
