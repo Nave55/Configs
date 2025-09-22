@@ -5,11 +5,15 @@ param(
 [switch]$Keep,
 [switch]$Vet,
 [switch]$Timings,
-[switch]$MoreTimings
+[switch]$MoreTimings,
+[switch]$Windows,
+[switch]$Build,
+[switch]$Help
 )
 
 $exe_loc = "-out=output\"
 $flags = @()
+$run = "run"
 
 if ($File -ne "") {
     if ($Name -eq "") {
@@ -29,6 +33,7 @@ if ($File -ne "") {
     }
 }
 
+
 if ($Release) {
     $debug_mode = ""
     $flags += "-o:speed"
@@ -37,22 +42,14 @@ if ($Release) {
     $flags += "-debug"
 }
 
-if ($Keep) {
-    $flags += "-keep-executable"
-}
-
-if ($Vet) {
-    $flags += "-vet"
-}
-
-if ($Timings) {
-    $flags += "-show-timings"
-}
-
-if ($MoreTimings) {
-    $flags += "-show-more-timings"
-}
+if ($Build) { $run = "build" }
+if ($Keep) { $flags += "-keep-executable" }
+if ($Vet) { $flags += "-vet" }
+if ($Timings) { $flags += "-show-timings" }
+if ($MoreTimings) { $flags += "-show-more-timings" }
+if ($Windows) { $flags += "-subsystem:windows" }
  
 cls
-Write-Host "odin run $Name $flags $exe_loc $debug_mode"
-odin run $Name $flags $exe_loc $debug_mode
+if ($Help) { Write-Host "Options: -Name, -File, -Build, -Release, -Keep, -Vet, -Timings, -MoreTimings, -Windows" }
+Write-Host "odin $run $Name $flags $exe_loc $debug_mode"
+odin $run $Name $flags $exe_loc $debug_mode
