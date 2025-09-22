@@ -1,7 +1,8 @@
 param(
 [string]$Name,
 [switch]$Release,
-[switch]$G
+[switch]$G,
+[switch]$Help
 )
 
 $exe_loc = "output\$Name.exe"
@@ -18,4 +19,8 @@ if ($Release) {
 }
 
 cls
-v @flags $Name
+if ($Help) { 
+	Write-Host "Options: -Name, -Release, -G" 
+} else {
+    v @flags $Name
+}
