@@ -21,6 +21,6 @@ cls
 if ($Help) { 
 	Write-Host "Options: -Name, -Verbose, -Release" 
 } else {
-	Write-Host "nim @flags $Name"
+	Write-Host "nim $flags $Name"
 	nim @flags $Name
 }
