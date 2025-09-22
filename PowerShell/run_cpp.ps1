@@ -24,7 +24,7 @@ cls
 if ($Help) {
     Write-Host "Options: -Name, -Release, -G3" 
 } else {
-    Write-Host "clang $cpp_loc $cpp_vers @flags $debug_mode -o $exe_loc"
+    Write-Host "clang $cpp_loc $cpp_vers $flags $debug_mode -o $exe_loc"
     clang $cpp_loc $cpp_vers @flags $debug_mode -o $exe_loc
     . $exe_loc
 }
