@@ -2,20 +2,29 @@ param(
 [string]$Name,
 [string]$File,
 [switch]$Release,
-[switch]$Test,
 [switch]$Keep,
 [switch]$Vet,
 [switch]$Timings,
 [switch]$MoreTimings
 )
 
-$exe_loc = "-out=output\$Name.exe"
-$run_type = "run"
+$exe_loc = "-out=output\"
 $flags = @()
 
 if ($File -ne "") {
-    $Name += ("/" + $File + ".odin")
+    if ($Name -eq "") {
+        $exe_loc += "$File.exe"
+        $Name = "$File.odin"
+    } else {
+        $exe_loc = "-out=$Name\output\$File.odin"
+        $Name += "\$File.odin"
+    }
     $flags += "-file"
+} else {
+    if ($Name -eq "") {
+        $Name = "."
+    }
+    $exe_loc += "main.exe"
 }
 
 if ($Release) {
@@ -24,10 +33,6 @@ if ($Release) {
 } else {
     $flags += "-o:none"
     $flags += "-debug"
-}
-
-if ($Test) {
-    $run_type = "test"
 }
 
 if ($Keep) {
@@ -47,4 +52,5 @@ if ($MoreTimings) {
 }
  
 cls
-odin $run_type $Name $flags $exe_loc $debug_mode
+Write-Host "odin run $Name $flags $exe_loc $debug_mode"
+odin run $Name $flags $exe_loc $debug_mode
