@@ -2,7 +2,7 @@ param(
 [string]$Name,
 [switch]$Release,
 [switch]$G3,
-[switch[$Help
+[switch]$Help
 )
 
 $cpp_loc = ".\$Name.cpp"
