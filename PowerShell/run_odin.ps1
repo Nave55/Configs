@@ -55,5 +55,5 @@ if ($Help) {
 }
 else {
     Write-Host "odin $run $Name $flags $exe_loc $debug_mode"
-    odin $run $Name $flags $exe_loc $debug_mode
+    odin $run $Name @flags $exe_loc $debug_mode
 }
