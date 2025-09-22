@@ -50,6 +50,10 @@ if ($MoreTimings) { $flags += "-show-more-timings" }
 if ($Windows) { $flags += "-subsystem:windows" }
  
 cls
-if ($Help) { Write-Host "Options: -Name, -File, -Build, -Release, -Keep, -Vet, -Timings, -MoreTimings, -Windows" }
-Write-Host "odin $run $Name $flags $exe_loc $debug_mode"
-odin $run $Name $flags $exe_loc $debug_mode
+if ($Help) { 
+    Write-Host "Options: -Name, -File, -Build, -Release, -Keep, -Vet, -Timings, -MoreTimings, -Windows" 
+}
+else {
+    Write-Host "odin $run $Name $flags $exe_loc $debug_mode"
+    odin $run $Name $flags $exe_loc $debug_mode
+}
