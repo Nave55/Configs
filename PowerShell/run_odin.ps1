@@ -23,8 +23,10 @@ if ($File -ne "") {
 } else {
     if ($Name -eq "") {
         $Name = "."
+        $exe_loc += "main.exe"
+    } else {
+        $exe_loc += "$Name.exe"
     }
-    $exe_loc += "main.exe"
 }
 
 if ($Release) {
