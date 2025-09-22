@@ -2,6 +2,7 @@ param(
 [string]$Name,
 [switch]$Release,
 [switch]$G3,
+[switch]$Build,
 [switch]$Help
 )
 
@@ -26,5 +27,7 @@ if ($Help) {
 } else {
     Write-Host "clang $cpp_loc $cpp_vers $flags $debug_mode -o $exe_loc"
     clang $cpp_loc $cpp_vers @flags $debug_mode -o $exe_loc
-    . $exe_loc
+    if (!$Build) {
+        . $exe_loc
+    }
 }
