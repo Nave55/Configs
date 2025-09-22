@@ -22,5 +22,6 @@ cls
 if ($Help) { 
 	Write-Host "Options: -Name, -Release, -G" 
 } else {
+	Write-Host "v $flags $Name"
     v @flags $Name
 }
