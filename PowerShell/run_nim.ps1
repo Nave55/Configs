@@ -18,6 +18,9 @@ if ($Release) {
 }
 
 cls
-if ($Help) { Write-Host "Options: -Name, -Verbose, -Release" }
-Write-Host "nim @flags $Name"
-nim @flags $Name
+if ($Help) { 
+	Write-Host "Options: -Name, -Verbose, -Release" 
+} else {
+	Write-Host "nim @flags $Name"
+	nim @flags $Name
+}
