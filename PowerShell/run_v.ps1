@@ -2,6 +2,7 @@ param(
 [string]$Name,
 [switch]$Release,
 [switch]$G,
+[switch]$Show,
 [switch]$Help
 )
 
@@ -20,8 +21,10 @@ if ($Release) {
 
 cls
 if ($Help) { 
-	Write-Host "Options: -Name, -Release, -G" 
+	Write-Host "Options: -Name, -Release, -G, -Show" 
 } else {
-	Write-Host "v $flags $Name"
+	if ($Show) {
+		Write-Host "v $flags $Name"
+	}
     v @flags $Name
 }
