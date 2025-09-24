@@ -9,7 +9,8 @@ param(
 [switch]$MoreTimings,
 [switch]$Windows,
 [switch]$Build,
-[switch]$Help
+[switch]$Help,
+[switch]$Verbose
 )
 
 $exe_loc = "-out=$Out"
@@ -45,7 +46,6 @@ if ($Keep -and $Out -ne "") {
 }
 
 if ($Release) {
-    $debug_mode = ""
     $flags += "-o:speed"
 } else {
     $flags += "-o:none"
@@ -61,9 +61,9 @@ if ($Windows) { $flags += "-subsystem:windows" }
  
 cls
 if ($Help) { 
-    Write-Host "Options: -Name, -File, -Build, -Release, -Out, -Keep, -Vet, -Timings, -MoreTimings, -Windows" 
+    Write-Host "Options: -Name, -File, -Build, -Release, -Out, -Keep, -Vet, -Timings, -MoreTimings, -Windows, -Verbose" 
 }
 else {
-    Write-Host "odin $run $Name $flags $exe_loc $debug_mode"
-    odin $run $Name @flags $exe_loc $debug_mode
+    if ($Verbose) { Write-Host "odin $run $Name $flags $exe_loc" }
+    odin $run $Name @flags $exe_loc
 }
