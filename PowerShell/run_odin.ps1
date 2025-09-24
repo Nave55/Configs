@@ -18,7 +18,7 @@ $output_path = "$Out"
 $flags = @()
 $run = "run"
 
-if ($Out -ne "") { exe_loc += "\" }
+if ($Out -ne "") { $exe_loc += "\" }
 
 if ($File -ne "") {
     if ($Name -eq "") {
@@ -59,7 +59,7 @@ if ($Timings) { $flags += "-show-timings" }
 if ($MoreTimings) { $flags += "-show-more-timings" }
 if ($Windows) { $flags += "-subsystem:windows" }
  
-cls
+#cls
 if ($Help) { 
     Write-Host "Options: -Name, -File, -Build, -Release, -Out, -Keep, -Vet, -Timings, -MoreTimings, -Windows, -Verbose" 
 }
