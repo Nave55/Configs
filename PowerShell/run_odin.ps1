@@ -59,7 +59,7 @@ if ($Timings) { $flags += "-show-timings" }
 if ($MoreTimings) { $flags += "-show-more-timings" }
 if ($Windows) { $flags += "-subsystem:windows" }
  
-#cls
+cls
 if ($Help) { 
     Write-Host "Options: -Name, -File, -Build, -Release, -Out, -Keep, -Vet, -Timings, -MoreTimings, -Windows, -Verbose" 
 }
