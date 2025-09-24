@@ -15,12 +15,20 @@ $exe_loc = "-out=output\"
 $flags = @()
 $run = "run"
 
+if (!$Keep) {
+	$exe_loc = "-out="
+}
+
 if ($File -ne "") {
     if ($Name -eq "") {
         $exe_loc += "$File.exe"
         $Name = "$File.odin"
     } else {
-        $exe_loc = "-out=$Name\output\$File.odin"
+		if (!$Keep) {
+			$exe_loc += "$File.exe"
+		} else {
+			$exe_loc = "-out=$Name\output\$File.exe"
+		}
         $Name += "\$File.odin"
     }
     $flags += "-file"
