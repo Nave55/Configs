@@ -1,6 +1,7 @@
 param(
 [string]$Name,
 [string]$File,
+[string]$Out,
 [switch]$Release,
 [switch]$Keep,
 [switch]$Vet,
@@ -11,25 +12,21 @@ param(
 [switch]$Help
 )
 
-$exe_loc = "-out=output\"
+$exe_loc = "-out=$Out"
+$output_path = "$Out"
 $flags = @()
 $run = "run"
 
-if (!$Keep) {
-	$exe_loc = "-out="
-}
+if ($Out -ne "") { exe_loc += "\" }
 
 if ($File -ne "") {
     if ($Name -eq "") {
         $exe_loc += "$File.exe"
         $Name = "$File.odin"
     } else {
-		if (!$Keep) {
-			$exe_loc += "$File.exe"
-		} else {
-			$exe_loc = "-out=$Name\output\$File.exe"
-		}
-        $Name += "\$File.odin"
+		$output_path = "$Name\$Out"
+		$exe_loc = "-out=$Name\$Out\$File.exe"
+        $Name += "$File.odin"
     }
     $flags += "-file"
 } else {
@@ -41,6 +38,11 @@ if ($File -ne "") {
     }
 }
 
+if ($Keep -and $Out -ne "") {
+	if (-not (Test-Path -Path $output_path -PathType Container)) {
+		New-Item -Path $output_path -ItemType Directory
+	}		
+}
 
 if ($Release) {
     $debug_mode = ""
@@ -59,7 +61,7 @@ if ($Windows) { $flags += "-subsystem:windows" }
  
 cls
 if ($Help) { 
-    Write-Host "Options: -Name, -File, -Build, -Release, -Keep, -Vet, -Timings, -MoreTimings, -Windows" 
+    Write-Host "Options: -Name, -File, -Build, -Release, -Out, -Keep, -Vet, -Timings, -MoreTimings, -Windows" 
 }
 else {
     Write-Host "odin $run $Name $flags $exe_loc $debug_mode"
