@@ -1,8 +1,8 @@
 param(
 [string]$Name,
+[string]$Out,
 [switch]$Verbose,
 [switch]$Release,
-[switch]$Out,
 [switch]$Build,
 [switch]$Help,
 )
