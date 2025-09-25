@@ -3,7 +3,8 @@ param(
 [switch]$Release,
 [switch]$G3,
 [switch]$Build,
-[switch]$Help
+[switch]$Help,
+[switch]$Verbose
 )
 
 $cpp_loc = ".\$Name.cpp"
@@ -17,17 +18,13 @@ if ($Release) {
     $flags = @("-O3")
 }
 
-if ($G3) {
-    $flags += "-g3"
-}
+if ($G3) { $flags += "-g3" }
 
 cls
 if ($Help) {
-    Write-Host "Options: -Name, -Release, -G3" 
+    Write-Host "Options: -Name, -Release, -G3, -Verbose" 
 } else {
-    Write-Host "clang $cpp_loc $cpp_vers $flags $debug_mode -o $exe_loc"
+	if ($Verbose) { Write-Host "clang $cpp_loc $cpp_vers $flags $debug_mode -o $exe_loc" }
     clang $cpp_loc $cpp_vers @flags $debug_mode -o $exe_loc
-    if (!$Build) {
-        . $exe_loc
-    }
+    if (!$Build) { . $exe_loc }
 }
