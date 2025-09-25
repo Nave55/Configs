@@ -26,7 +26,7 @@ if ($File -ne "") {
     } else {
 		$output_path = "$Out"
 		$exe_loc = "-out=$Out\$File.exe"
-        $Name += "/$File.odin"
+        $Name += "\$File.odin"
     }
     $flags += "-file"
 } else {
