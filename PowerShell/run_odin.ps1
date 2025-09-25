@@ -3,7 +3,6 @@ param(
 [string]$File,
 [string]$Out,
 [switch]$Release,
-[switch]$Keep,
 [switch]$Vet,
 [switch]$Timings,
 [switch]$MoreTimings,
@@ -25,9 +24,9 @@ if ($File -ne "") {
         $exe_loc += "$File.exe"
         $Name = "$File.odin"
     } else {
-		$output_path = "$Name\$Out"
-		$exe_loc = "-out=$Name\$Out\$File.exe"
-        $Name += "$File.odin"
+		$output_path = "$Out"
+		$exe_loc = "-out=$Out\$File.exe"
+        $Name += "/$File.odin"
     }
     $flags += "-file"
 } else {
@@ -39,10 +38,11 @@ if ($File -ne "") {
     }
 }
 
-if ($Keep -and $Out -ne "") {
+if ($Out -ne "") {
 	if (-not (Test-Path -Path $output_path -PathType Container)) {
 		New-Item -Path $output_path -ItemType Directory
 	}		
+	$flags += "-keep-executable"
 }
 
 if ($Release) {
@@ -53,7 +53,6 @@ if ($Release) {
 }
 
 if ($Build) { $run = "build" }
-if ($Keep) { $flags += "-keep-executable" }
 if ($Vet) { $flags += "-vet" }
 if ($Timings) { $flags += "-show-timings" }
 if ($MoreTimings) { $flags += "-show-more-timings" }
@@ -61,9 +60,8 @@ if ($Windows) { $flags += "-subsystem:windows" }
  
 cls
 if ($Help) { 
-    Write-Host "Options: -Name, -File, -Build, -Release, -Out, -Keep, -Vet, -Timings, -MoreTimings, -Windows, -Verbose" 
-}
-else {
+    Write-Host "Options: -Name, -File, -Build, -Release, -Out, -Vet, -Timings, -MoreTimings, -Windows, -Verbose" 
+} else {
     if ($Verbose) { Write-Host "odin $run $Name $flags $exe_loc" }
     odin $run $Name @flags $exe_loc
 }
