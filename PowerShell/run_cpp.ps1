@@ -32,7 +32,7 @@ if ($G3) { $flags += "-g3" }
 
 cls
 if ($Help) {
-    Write-Host "Options: -Name, -Release, -G3, -Verbose" 
+    Write-Host "Options: -Name, -Release, -Build, -G3, -Verbose" 
 } else {
 	if ($Verbose) { Write-Host "clang $cpp_loc $cpp_vers $flags $debug_mode -o $exe_loc" }
     clang $cpp_loc $cpp_vers @flags $debug_mode -o $exe_loc
