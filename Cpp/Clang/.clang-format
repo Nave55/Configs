@@ -5,4 +5,7 @@ BreakConstructorInitializers: BeforeColon
 AllowShortFunctionsOnASingleLine: Empty
 PackConstructorInitializers: Never
 IncludeBlocks: Merge
-SpaceAfterCStyleCast: True
+AlignConsecutiveAssignments: Consecutive
+AlignConsecutiveDeclarations: Consecutive
+ArrayInitializerAlignmentStyle: Left
+ColumnLimit: 0
