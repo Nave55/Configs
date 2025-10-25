@@ -16,7 +16,7 @@
         "elevated_surface.background": "#000",
         "surface.background": "#000",
         "background": "#000",
-        "element.background": "#561223",
+        "element.background": "#191919",
         "element.hover": "#00061A",
         "element.active": null,
         "element.selected": "#00061A",
@@ -146,7 +146,7 @@
         ],
         "syntax": {
           "attribute": {
-            "color": "#55a8c2",
+            "color": "#16ccf5",
             "font_style": null,
             "font_weight": 300
           },
