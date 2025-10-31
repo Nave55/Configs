@@ -1,4 +1,4 @@
-# Nave : dark high contrast
+# GreasySlug : dark high contrast <9619abgoni@gmail.com>
 
 # Interface
 "ui.background" = { bg = "black" }
@@ -14,7 +14,7 @@
 "ui.virtual" = "gray"
 "ui.virtual.whitespace" = "gray"
 "ui.virtual.ruler" = { fg = "white", bg = "gray" }
-"ui.virtual.indent-guide" = "white"
+"ui.virtual.indent-guide" = "gray"
 "ui.virtual.inlay-hint" = { fg = "hint_gray" }
 "ui.virtual.inlay-hint.parameter" = { fg = "hint_gray" }
 "ui.virtual.inlay-hint.type" = { fg = "hint_gray" }
