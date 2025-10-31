@@ -235,6 +235,11 @@
             "font_style": null,
             "font_weight": 300
           },
+		  "namespace": {
+			"color": "#8651f0",
+			"font_style": "italic",
+			"font_weight": "bold"
+		  },			
           "number": {
             "color": "#e07a14",
             "font_style": null,
