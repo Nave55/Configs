@@ -24,7 +24,9 @@
     "context": "Editor",
     "bindings": {
       "f3": "editor::Rename",
-      "f2": "terminal_panel::ToggleFocus"
+      "f2": "terminal_panel::ToggleFocus",
+      "ctrl-j": "editor::MoveLineDown",
+      "ctrl-k": "editor::MoveLineUp"
     }
   }
 ]
