@@ -12,6 +12,7 @@ if ($Out -ne "") {
 		New-Item -Path $Out -ItemType Directory
 	}		
 }
+
 $exe_loc = "$Out/$Name.exe"
 if ($Out -eq "") { $exe_loc = "$Name.exe" }
 
