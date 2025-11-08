@@ -27,7 +27,6 @@ $name_path = "$Name"
 if ($Dir -ne "") { $name_path = "$Dir\$Name" }
 if ($Out -eq "") { $exe_loc = "$Name.exe" }
 
-
 if ($Release) {
     if ($Out -ne "") {
       $flags += @("-prod", "-o", $exe_loc, "crun")
@@ -41,7 +40,6 @@ if ($Release) {
       $flags += "run"
     }
 }
-
 
 cls
 if ($Help) {
