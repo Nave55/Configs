@@ -3,6 +3,7 @@ param(
     [string]$File,
     [string]$Out,
     [switch]$Release,
+	[switch]$Debug,
     [switch]$Vet,
     [switch]$Timings,
     [switch]$MoreTimings,
@@ -36,7 +37,8 @@ if ($Out -and $Out -ne "." -and -not (Test-Path $output_path)) {
 if ($Out) { $flags += "-keep-executable" }
 
 # Optimization flags
-$flags += if ($Release) { "-o:speed" } else { @("-o:none", "-debug") }
+$flags += if ($Release) { "-o:speed" } else { "-o:none" }
+if ($Debug) { $flags += "-debug" }
 
 # Optional flags
 if ($Vet) { $flags += "-vet" }
@@ -46,7 +48,7 @@ if ($Windows) { $flags += "-subsystem:windows" }
 
 cls
 if ($Help) {
-    Write-Host "Options: -Name, -File, -Build, -Release, -Out, -Vet, -Timings, -MoreTimings, -Windows, -Verbose"
+    Write-Host "Options: -Name, -File, -Build, -Release, -Debug, -Out, -Vet, -Timings, -MoreTimings, -Windows, -Verbose"
 } else {
     if ($Verbose) { Write-Host "odin $run $Name $flags $exe_loc" }
     odin $run $Name @flags $exe_loc
