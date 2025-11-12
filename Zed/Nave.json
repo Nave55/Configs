@@ -7,8 +7,8 @@
       "name": "Nave",
       "appearance": "dark",
       "style": {
-        "border": "#43007375",
-        "border.variant": "#43007375",
+        "border": "#191919",
+        "border.variant": "#191919",
         "border.focused": "#f7e6fe",
         "border.selected": "#f7e6fe",
         "border.transparent": "#f7e6fe",
@@ -50,7 +50,7 @@
         "pane.focused_border": null,
         "scrollbar_thumb.background": "#191919",
         "scrollbar.thumb.hover_background": null,
-        "scrollbar.thumb.border": "#43007375",
+        "scrollbar.thumb.border": "#90908a",
         "scrollbar.track.background": "#000",
         "scrollbar.track.border": "#000",
         "editor.foreground": "#D2C8E0",
@@ -148,7 +148,7 @@
           "attribute": {
             "color": "#16ccf5",
             "font_style": null,
-            "font_weight": 300
+            "font_weight": null
           },
           "boolean": {
             "color": "#A312A6",
@@ -158,7 +158,7 @@
           "comment": {
             "color": "#666",
             "font_style": null,
-            "font_weight": 500
+            "font_weight": null
           },
           "comment.doc": {
             "color": "#sss",
@@ -168,12 +168,12 @@
           "constant": {
             "color": "#A312A6",
             "font_style": null,
-            "font_weight": 500
+            "font_weight": null
           },
           "constructor": {
             "color": "#9b29ad",
             "font_style": null,
-            "font_weight": 200
+            "font_weight": null
           },
           "embedded": {
             "color": null,
@@ -208,12 +208,12 @@
           "keyword": {
             "color": "#c4a80a",
             "font_style": null,
-            "font_weight": 300
+            "font_weight": null
           },
 		  "keyword.function": {
             "color": "#c2596d",
             "font_style": null,
-            "font_weight": 300
+            "font_weight": null
           },
           "label": {
             "color": "#0f918d",
@@ -233,12 +233,12 @@
 		  "module": {
             "color": "#c2596d",
             "font_style": null,
-            "font_weight": 300
+            "font_weight": null
           },
 		  "namespace": {
 			"color": "#8651f0",
 			"font_style": "italic",
-			"font_weight": "bold"
+			"font_weight": null
 		  },			
           "number": {
             "color": "#e07a14",
@@ -248,7 +248,7 @@
           "operator": {
             "color": "#bbb",
             "font_style": null,
-            "font_weight": 300
+            "font_weight": null
           },
           "predictive": {
             "color": "#5a6a87",
@@ -278,12 +278,12 @@
           "punctuation.bracket": {
             "color": "#c4a80a",
             "font_style": null,
-            "font_weight": 300
+            "font_weight": null
           },
           "punctuation.delimiter": {
             "color": "#acb2be",
             "font_style": null,
-            "font_weight": 300
+            "font_weight": null
           },
           "punctuation.list_marker": {
             "color": null,
@@ -298,7 +298,7 @@
           "string": {
             "color": "#228208",
             "font_style": null,
-            "font_weight": 200
+            "font_weight": null
           },
           "string.escape": {
             "color": "#9E2106",
@@ -338,22 +338,22 @@
           "type": {
             "color": "#8651f0",
             "font_style": null,
-            "font_weight": 200
+            "font_weight": null
           },
           "variable": {
             "color": "#bf1d32",
             "font_style": "normal",
-            "font_weight": 500
+            "font_weight": null
           },
           "variable.special": {
             "color": "#bf1d32",
             "font_style": null,
-            "font_weight": 400
+            "font_weight": null
           },
 		  "variable.member": {
             "color": "#0f918d",
             "font_style": null,
-            "font_weight": 400
+            "font_weight": null
           },
           "variant": {
             "color": null,
