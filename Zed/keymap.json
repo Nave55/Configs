@@ -9,9 +9,9 @@
   {
     "context": "Workspace",
     "bindings": {
-      "alt-q": "task::Rerun",
-      "f1": "terminal_panel::ToggleFocus",
-      "f2": "terminal_panel::ToggleFocus"
+      "alt-q": "task::Spawn"
+      // "f1": "terminal_panel::ToggleFocus",
+      // "f2": "terminal_panel::ToggleFocus"
     }
   },
   {
