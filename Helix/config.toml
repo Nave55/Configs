@@ -43,6 +43,7 @@ C-A-c = [":bc!"]
 C-A-s = ["save_selection"]
 C-A-a = ["goto_line_start"]
 C-A-d = ["goto_line_end"]
+X = ["extend_line_up", "extend_to_line_bounds"]
 
 [keys.insert]
 C-s = [":w!", "normal_mode"]
