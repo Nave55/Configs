@@ -73,6 +73,7 @@
 "type" = "deep_purple"
 "type.builtin" = "deep_purple"
 "type.enum" = "blue_green"
+"type.qualifier" = "mustard"
 "comment" = "gray"
 "operator" = "light_gray"
 "variable" = "var_red"
@@ -89,7 +90,7 @@
 "constructor" = "deep_purple"
 "keyword" = "mustard"
 "keyword.control" = "mustard"
-"keyword.storage.modifier" = "deep_purple"
+"keyword.storage.modifier" = "mustard"
 "keyword.function" = "salmon"
 "keyword.storage.type" = "salmon"
 "function" = { fg = "dark_blue" }
