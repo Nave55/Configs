@@ -27,7 +27,7 @@ if ($Release) {
   $flags = @("-O3")
 }
 
-if ($G3){ 
+if ($G3) { 
     $flags += "-g3" 
 }
 
@@ -39,7 +39,8 @@ if ($Help) {
     Write-Host "clang $cpp_loc $cpp_vers $flags $debug_mode -o $exe_loc" 
   }
   
-  g++ $cpp_loc $cpp_vers @flags $debug_mode -o $exe_loc 
+  g++ $cpp_loc $cpp_vers @flags $debug_mode -o $exe_loc
+  
   if (!$Build) {
     & ".\$($exe_loc)" 
   }
