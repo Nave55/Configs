@@ -14,3 +14,4 @@ source.path = "C:/Users/navez/AppData/Roaming/helix/tree-sitter-odin"
 name = "cpp"
 auto-format = true
 formatter = { command = "clang-format"}
+indent = { tab-width = 2, unit = "  " }
