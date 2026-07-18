@@ -83,6 +83,7 @@
 "attributes" = "blue"
 "namespace" = "deep_purple"
 "string" = "emerald_green"
+"string.special.symbol" = "mustard"
 "string.special.url" = "emerald_green"
 "constant.character.escape" = "var_red"
 "constructor" = "deep_purple"
