@@ -1,54 +1,81 @@
 param(
-    [string]$Name,
-    [string]$File,
-    [string]$Out,
-    [switch]$Release,
-	[switch]$Debug,
-    [switch]$Vet,
-    [switch]$Timings,
-    [switch]$MoreTimings,
-    [switch]$Windows,
-    [switch]$Build,
-    [switch]$Help,
-    [switch]$Verbose
+[string]$Name,
+[string]$File,
+[string]$Out,
+[string]$Speed,
+[switch]$Release,
+[switch]$Debug,
+[switch]$Vet,
+[switch]$San,
+[switch]$Timings,
+[switch]$MoreTimings,
+[switch]$Windows,
+[switch]$Build,
+[switch]$Help,
+[switch]$Verbose
 )
 
-$run = if ($Build) { "build" } else { "run" }
+$exe_loc = "-out=$Out"
+$output_path = "$Out"
 $flags = @()
+$run = "run"
 
-# Determine output path and executable location
-$output_path = $Out
-$exe_loc = if ($Out -eq "" -or $Out -eq ".") { "-out=" } else { "-out=$Out\" }
+if ($Out -ne "" -and $Out -ne ".") { $exe_loc += "\" }
 
-# Determine source file and executable name
-if ($File) {
-    $Name = if ($Name) { "$Name\$File.odin" } else { "$File.odin" }
-    $exe_loc += "$File.exe"
+if ($Out -ne "") {
+	if ($Out -ne ".") {
+		if (-not (Test-Path -Path $output_path -PathType Container)) {
+			New-Item -Path $output_path -ItemType Directory
+		}
+	} else {
+        $exe_loc = "-out="
+    }
+    
+	$flags += "-keep-executable"
+}
+
+if ($File -ne "") {
+    if ($Name -eq "") {
+        $exe_loc += "$File.exe"
+        $Name = "$File.odin"
+    } else {
+		$output_path = "$Out"
+		$exe_loc = "-out=$Out\$File.exe"
+        $Name += "\$File.odin"
+    }
     $flags += "-file"
 } else {
-    $Name = if ($Name) { $Name } else { "." }
-    $exe_loc += if ($Name -eq ".") { "main.exe" } else { "$Name.exe" }
+    if ($Name -eq "") {
+        $Name = "."
+        $exe_loc += "main.exe"
+    } else {
+        $exe_loc += "$Name.exe"
+    }
 }
 
-# Create output directory if needed
-if ($Out -and $Out -ne "." -and -not (Test-Path $output_path)) {
-    New-Item -Path $output_path -ItemType Directory | Out-Null
-}
-if ($Out) { $flags += "-keep-executable" }
 
-# Optimization flags
-$flags += if ($Release) { "-o:speed" } else { "-o:none" }
+if ($Speed -eq "") {
+    if ($Release) {
+        $flags += "-o:speed"
+    } else {
+        $flags += "-o:minimal"
+    }
+} else {
+    $flags += "-o:$($Speed)"
+}
+
+
 if ($Debug) { $flags += "-debug" }
-
-# Optional flags
+if ($Build) { $run = "build" }
 if ($Vet) { $flags += "-vet" }
+if ($San) { $flags += "-sanitize:address" }
 if ($Timings) { $flags += "-show-timings" }
 if ($MoreTimings) { $flags += "-show-more-timings" }
 if ($Windows) { $flags += "-subsystem:windows" }
-
+ 
 cls
-if ($Help) {
-    Write-Host "Options: -Name, -File, -Build, -Release, -Debug, -Out, -Vet, -Timings, -MoreTimings, -Windows, -Verbose"
+if ($Help) { 
+    Write-Host "Options: -Name, -File, -Build, -Release, -Debug, -Speed, -Out, -Vet, -San, -Timings, -MoreTimings, -Windows, -Verbose" 
 } else {
     if ($Verbose) { Write-Host "odin $run $Name $flags $exe_loc" }
     odin $run $Name @flags $exe_loc
