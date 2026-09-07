@@ -9,16 +9,16 @@
   {
     "context": "Workspace",
     "bindings": {
-      "alt-q": "task::Spawn"
+      "alt-q": "task::Spawn",
       // "f1": "terminal_panel::ToggleFocus",
       // "f2": "terminal_panel::ToggleFocus"
-    }
+    },
   },
   {
     "context": "Terminal",
     "bindings": {
-      "f1": "terminal_panel::ToggleFocus"
-    }
+      "f1": "terminal_panel::ToggleFocus",
+    },
   },
   {
     "context": "Editor",
@@ -26,7 +26,25 @@
       "f3": "editor::Rename",
       "f2": "terminal_panel::ToggleFocus",
       "ctrl-j": "editor::MoveLineDown",
-      "ctrl-k": "editor::MoveLineUp"
+      "ctrl-k": "editor::MoveLineUp", 
+    },
+  },
+  {
+    "context": "vim_mode == insert",
+      "bindings": {
+      "ctrl-alt-k": "editor::DeleteToEndOfLine"
+    }
+  },
+  {
+    "context": "(vim_mode == helix_normal || vim_mode == helix_select) && !menu",
+    "bindings": {
+      ",": "vim::HelixKeepNewestSelection"
+    }
+  },
+  {
+    "context": "(vim_mode == helix_normal || vim_mode == helix_select) && !menu",
+    "bindings": {
+      "escape": "vim::HelixKeepNewestSelection"
     }
   }
 ]
