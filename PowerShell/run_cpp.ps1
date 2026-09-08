@@ -5,7 +5,8 @@ param(
   [switch]$G3,
   [switch]$Build,
   [switch]$Help,
-  [switch]$Verbose
+  [switch]$Verbose,
+  [switch]$ShowCleanup
 )
 
 $cpp_loc = ".\$Name.cpp"
@@ -13,6 +14,7 @@ $exe_loc = "$Out\$Name.exe"
 $cpp_vers = "-std=gnu++2c"
 $flags = @("-O0", "-Wextra", "-Wall")
 $debug_mode = "-DDEBUG"
+$cleanup_mode = ($ShowCleanup) ? "-DSHOWCLEANUP" : ""
 
 if ($Out -ne "") {
   if (-not (Test-Path -Path $Out -PathType Container)) {
@@ -33,14 +35,13 @@ if ($G3) {
 
 Clear-Host
 if ($Help) {
-  Write-Host "Options: -Name, -Release, -Build, -G3, -Verbose"
+  Write-Host "Options: -Name, -Release, -Build, -G3, -Verbose, -ShowCleanup"
 } else {
   if ($Verbose) { 
-    Write-Host "clang $cpp_loc $cpp_vers $flags $debug_mode -o $exe_loc" 
+    Write-Host "clang++ $cpp_loc $cpp_vers $flags $debug_mode $cleanup_mode -o $exe_loc" 
   }
   
-  g++ $cpp_loc $cpp_vers @flags $debug_mode -o $exe_loc
-  
+  clang++ $cpp_loc $cpp_vers @flags $debug_mode $cleanup_mode -o $exe_loc 
   if (!$Build) {
     & ".\$($exe_loc)" 
   }
