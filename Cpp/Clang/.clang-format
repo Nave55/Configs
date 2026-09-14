@@ -9,3 +9,7 @@ AlignConsecutiveAssignments: Consecutive
 AlignConsecutiveDeclarations: Consecutive
 ArrayInitializerAlignmentStyle: Left
 ColumnLimit: 0
+SpaceAfterCStyleCast: true
+IndentPPDirectives: BeforeHash
+BreakBeforeBinaryOperators: true
+BreakBinaryOperations: OnePerLine
